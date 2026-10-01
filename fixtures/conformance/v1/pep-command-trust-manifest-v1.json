@@ -1,0 +1,23 @@
+{
+  "schema": "crowsi://policy-administrator/pep-command-trust-manifest/v1",
+  "manifest_id": "crowsi-pa-pep-conformance.1",
+  "intended_use": "conformance-only",
+  "security_domain": "customer-hat",
+  "deployment_id": "deployment.production.1",
+  "provider": "crowsi-enforcer-incus",
+  "canonical_profile": "crowsi-control-canonical-v1",
+  "accepted_schemas": {
+    "lease": "crowsi://control/pep-execution-lease/v2",
+    "command": "crowsi://control/isolation-command/v2",
+    "receipt": "crowsi://control/enforcement-receipt/v2"
+  },
+  "command_verifier": {
+    "algorithm": "ed25519",
+    "key_id": "command.control.1",
+    "role": "isolation-command",
+    "scope_type": "audience",
+    "scope_value": "crowsi-enforcer-incus",
+    "public_key_encoding": "base64url-no-pad",
+    "public_key": "bnoc3Smwt4_ROvTFWY_v9O8qlxZuPKby5Pv8zYBQW_E"
+  }
+}

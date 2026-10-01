@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "crowsi://policy-administrator/pep-command-trust-manifest/v1",
+  "title": "Crowsi PA to PEP Command Trust Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "manifest_id",
+    "intended_use",
+    "security_domain",
+    "deployment_id",
+    "provider",
+    "canonical_profile",
+    "accepted_schemas",
+    "command_verifier"
+  ],
+  "properties": {
+    "schema": {
+      "const": "crowsi://policy-administrator/pep-command-trust-manifest/v1"
+    },
+    "manifest_id": { "$ref": "#/$defs/identifier" },
+    "intended_use": { "const": "conformance-only" },
+    "security_domain": { "$ref": "#/$defs/identifier" },
+    "deployment_id": { "$ref": "#/$defs/identifier" },
+    "provider": { "$ref": "#/$defs/identifier" },
+    "canonical_profile": { "const": "crowsi-control-canonical-v1" },
+    "accepted_schemas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lease", "command", "receipt"],
+      "properties": {
+        "lease": { "const": "crowsi://control/pep-execution-lease/v2" },
+        "command": { "const": "crowsi://control/isolation-command/v2" },
+        "receipt": { "const": "crowsi://control/enforcement-receipt/v2" }
+      }
+    },
+    "command_verifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "key_id",
+        "role",
+        "scope_type",
+        "scope_value",
+        "public_key_encoding",
+        "public_key"
+      ],
+      "properties": {
+        "algorithm": { "const": "ed25519" },
+        "key_id": { "$ref": "#/$defs/identifier" },
+        "role": { "const": "isolation-command" },
+        "scope_type": { "const": "audience" },
+        "scope_value": { "$ref": "#/$defs/identifier" },
+        "public_key_encoding": { "const": "base64url-no-pad" },
+        "public_key": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{43}$"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._:-]{0,127}$"
+    }
+  }
+}

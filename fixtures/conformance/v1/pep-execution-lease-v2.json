@@ -1,0 +1,49 @@
+{
+  "schema": "crowsi://control/pep-execution-lease/v2",
+  "reservation_id": "release-reservation.1",
+  "command": {
+    "schema": "crowsi://control/isolation-command/v2",
+    "command_id": "command.v2.1",
+    "jti": "jti.command.v2.1",
+    "security_domain": "customer-hat",
+    "deployment_id": "deployment.production.1",
+    "incident_id": "incident.1",
+    "target_id": "incus://project/default/instance/worker-a",
+    "release_id": "release.1",
+    "release_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "checkpoint_id": "checkpoint.1",
+    "checkpoint_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "checkpoint_sequence": 1,
+    "release_reservation_id": "release-reservation.1",
+    "enforcement_grant_jti": "jti.grant.1",
+    "decision_id": "decision.1",
+    "pairwise_subject": "subject-a",
+    "actor": "operator-a",
+    "device": "device-a",
+    "workload": "spiffe://crowsi.local/rescue-console/a",
+    "profile": "security-operator",
+    "proof_key_ref": "proof-key-a",
+    "revocation_epoch": 7,
+    "binding": {
+      "audience": "crowsi-enforcer-incus",
+      "resource": "incus://project/default/instance/worker-a",
+      "action": "quarantine",
+      "purpose": "incident-containment",
+      "channel": "emergency-console"
+    },
+    "provider": "crowsi-enforcer-incus",
+    "previous_fence_epoch": 0,
+    "fence_epoch": 1,
+    "expected_resource_version": "incus-etag-7",
+    "issued_at": "2026-07-29T00:01:30.000Z",
+    "expires_at": "2026-07-29T00:02:30.000Z",
+    "signed": {
+      "algorithm": "ed25519",
+      "key_id": "command.control.1",
+      "digest": "sha256:0d3094bc1beb9a6c5ea6dea8f8bd72615dda1b6a9beae7d5b10235ddffbf0d04",
+      "signature": "oZU5l4eTqkDcWNnJIoU_NNu-NA_R7nAIy_hHQX0E5GgfX-PUTLrv5cYqlxIfHeDpV9H_a1daYDFvndfNKrcPAw"
+    }
+  },
+  "command_digest": "sha256:0d3094bc1beb9a6c5ea6dea8f8bd72615dda1b6a9beae7d5b10235ddffbf0d04",
+  "reserved_at": "2026-07-29T00:02:00.000Z"
+}
